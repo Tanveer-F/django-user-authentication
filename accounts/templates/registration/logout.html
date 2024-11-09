@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logged Out</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .logout-message {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn-login {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container logout-message">
+        <h2>Logged Out</h2>
+        <p>Thanks for spending some quality time with the website today.</p>
+
+        <!-- Log In Again Button -->
+        <a href="{% url 'login' %}" class="btn btn-primary btn-login">Log in again</a>
+    </div>
+</body>
+</html>

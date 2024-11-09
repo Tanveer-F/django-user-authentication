@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom styles for the form */
+        .container {
+            max-width: 400px; /* Limit the width of the form */
+            margin-top: 20px; /* Adjusted margin for positioning closer to the top */
+        }
+        .btn {
+            width: 100%; /* Make buttons full width */
+            margin-top: 10px; /* Space between buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form method="post" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}  <!-- This should apply crispy styling -->
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <a href="{% url 'login' %}" class="btn btn-link">Already have an account? Login</a>
+        </form>
+    </div>
+</body>
+</html>

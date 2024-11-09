@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>User Profile</h2>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Bio:</strong> {{ profile.bio }}</p> <!-- Update to access 'bio' from UserProfile -->
+        {% if profile.profile_picture %} <!-- Check if profile picture exists -->
+            <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid" style="width: 150px; height: 150px;">
+        {% else %}
+            <p>No profile picture uploaded.</p> <!-- Message if no picture -->
+        {% endif %}
+
+        <!-- Logout Button -->
+        <form method="post" action="{% url 'logout' %}" class="mt-4">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+
+        <!-- Change Password Button -->
+        <a href="{% url 'password_change' %}" class="btn btn-secondary mt-2">Change Password</a>
+    </div>
+</body>
+</html>
